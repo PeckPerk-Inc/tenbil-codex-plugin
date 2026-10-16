@@ -1,0 +1,4 @@
+interface:
+  display_name: "提案准备"
+  short_description: "依据真实客户需求挑选案例与伙伴，整理有来源的提案内容并保存工作稿"
+  default_prompt: "使用 $proposal-preparation 根据这条商机的需求准备提案，列出案例依据和缺失信息。"

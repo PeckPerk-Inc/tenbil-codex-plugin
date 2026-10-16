@@ -1,0 +1,4 @@
+interface:
+  display_name: "营销任务整理"
+  short_description: "将营销目标整理为活动或项目，保存执行步骤、真实产物与进度结果"
+  default_prompt: "使用 $marketing-workflow 把这次营销目标整理成计划、步骤和产物，并按我的要求保存。"

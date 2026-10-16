@@ -1,0 +1,20 @@
+{
+  "name": "tenbil-team",
+  "interface": {
+    "displayName": "TENBIL 团队"
+  },
+  "plugins": [
+    {
+      "name": "tenbil",
+      "source": {
+        "source": "local",
+        "path": "./plugins/tenbil"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

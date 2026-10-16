@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "tenbil": {
+      "type": "http",
+      "url": "https://connect.library.peckperk.com/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "dcr"
+            }
+          }
+        }
+      }
+    }
+  }
+}
