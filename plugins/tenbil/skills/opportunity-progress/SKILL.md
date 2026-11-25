@@ -5,12 +5,12 @@ description: 理解 TENBIL 客户与商机的来龙去脉，接手商机、整�
 
 # 商机接手与推进
 
-通过 TENBIL MCP 工作。先用 `workspace_info` 核对本人身份、可用范围和当前契约；工具可能按权限省略。连接未登录时走客户端登录，不索要或收集令牌；缺写权限时说明需要的范围。账号的 CRM 仍是本人工作空间，`team:read` 仅增加团队共享资料读取能力。
+通过 TENBIL MCP 工作。先用 `workspace_info` 核对本人身份、可用范围和当前契约；工具可能按权限省略。连接未登录时走客户端登录，不索要或收集令牌；缺写权限时说明需要的范围。团队商机先通过 `discover_employee_actions` 查看团队 CRM 动作。旧版通用 CRM 工具面向本人历史工作空间，`team:read` 只开放团队共享资料。团队目标缺少授权时明确提示。
 
 ## 理解经过
 
-- 用 `search_records` 定位 `opportunities`，必要时搜索 `organizations`、`contacts`；重名或多个需求时用客户、标题、现有链接区分，不猜 ID。
-- 对目标调用 `get_opportunity_context`，按需用 `get_record` 补读。上下文包括客户、商机、联系人、沟通、待办、提案关联与缺失信息；分页或截断不代表没有后续记录。
+- 团队商机使用 `read_employee_action` 执行 `search_team_crm` 并读取 `get_team_opportunity_context`。个人历史商机用 `search_records` 定位 `opportunities`，必要时搜索 `organizations`、`contacts`；重名或多个需求时用客户、标题、现有链接区分，不猜 ID。
+- 对个人历史商机调用 `get_opportunity_context`，按需用 `get_record` 补读。上下文包括客户、商机、联系人、沟通、待办、提案关联与缺失信息；分页或截断不代表没有后续记录。
 - 需要案例或其他工作资料时，用 `search_records` 的相应种类和 `get_content` 补读。团队伙伴另用 `list_team_members`、`get_team_member`；共享文件用 `get_team_resource`，按 `nextOffset` 续读。二进制仅返回元数据时，不声称已读全文。
 - 将已保存事实、用户刚补充的信息和你的判断分开。引用返回的记录链接、ID、revision 与来源；上下文是逐记录版本，不声称是整个工作空间的原子快照。
 
@@ -18,7 +18,7 @@ description: 理解 TENBIL 客户与商机的来龙去脉，接手商机、整�
 
 ## 按意图保存
 
-用户只要分析时给建议；用户明确要求创建或修改时直接完成已授权操作，不重复索要相同确认。按当前工具 schema 调用 `create_record` 或 `update_record`，只保存相关字段。沟通写 `interactions`，行动写 `tasks`，与已读取的 `opportunityId` 关联；负责人当前仅限 `workspace_info.actor.id`。沟通记录不代表发信或拨号。
+用户只要分析时给建议；用户明确要求创建或修改时直接完成已授权操作，不重复索要相同确认。团队商机通过 `write_employee_action` 的 `create_team_crm_record` 或 `update_team_crm_record` 写回同一个团队商机，完成后附原记录链接。以下个人历史操作按当前工具 schema 调用 `create_record` 或 `update_record`，只保存相关字段。沟通写 `interactions`，行动写 `tasks`，与已读取的 `opportunityId` 关联；负责人当前仅限 `workspace_info.actor.id`。沟通记录不代表发信或拨号。
 
 更新使用刚读取的 `expectedRevision`。每次意图生成一个稳定的 `idempotencyKey`；同一请求重试保持参数和 key 不变。遇到版本冲突先重读、保留并发修改，再决定如何完成用户的改动；不要静默覆盖。发生 `audit_incomplete` 时可能已经保存，用原参数和 key 重试并核对，不能当成回滚后另建一份。
 

@@ -1,6 +1,6 @@
 {
   "name": "tenbil",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Connect TENBIL sales enablement, CRM and marketing work to Codex through the signed-in user's authorized business records.",
   "author": {
     "name": "TENBIL",
@@ -18,8 +18,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "TENBIL",
-    "shortDescription": "商机推进、提案准备与营销工作",
-    "longDescription": "连接本人 TENBIL 工作空间，读取有来源和版本的客户、商机、案例与工作记录，按授权保存待办、提案工作稿和营销计划。团队名片与共享资料需要独立授权。保存提案工作稿不等于生成最终文档，保存营销计划不等于发送消息或投放广告。",
+    "shortDescription": "员工业务操作、商机推进和工坊协作",
+    "longDescription": "通过本人 TENBIL 连接查询商机、案例与资料，办理移交、推进红人合作、制作商务资料，并按当前商机或工坊权限写回结果。工具及可执行动作随服务版本与连接授权展示。",
     "developerName": "TENBIL",
     "category": "Productivity",
     "capabilities": [

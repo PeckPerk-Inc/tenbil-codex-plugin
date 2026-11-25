@@ -1,0 +1,4 @@
+interface:
+  display_name: "TENBIL 员工业务操作"
+  short_description: "按员工权限读取业务信息并完成指定操作"
+  default_prompt: "使用 $employee-operations 在我的 TENBIL 授权范围内完成这项业务操作。"

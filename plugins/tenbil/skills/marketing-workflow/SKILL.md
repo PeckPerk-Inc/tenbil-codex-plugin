@@ -5,7 +5,7 @@ description: 在 TENBIL 将营销目标整理为活动或项目的计划、执�
 
 # 营销任务整理
 
-使用 TENBIL MCP 的 `workspace_info` 核对身份、可用权限，以及 `contentContract.contentShapes.campaign` 和 `project`。客户端负责登录授权，勿索取令牌。当前工作记录归属本人账号；负责人仅使用 `workspace_info.actor.id`，不能把团队名片 ID 或人才档案 ID 当成账号。
+使用 TENBIL MCP 的 `workspace_info` 核对身份、可用权限，以及 `contentContract.contentShapes.campaign` 和 `project`。客户端负责登录授权，勿索取令牌。红人合作按团队商机和工坊权限办理，使用 `discover_employee_actions` 查找红人动作，例如 `list_creator_collaborations`、`add_creator_event`。客户来信或已发消息只登记真实往来。下述旧营销计划和项目记录归属本人账号；负责人仅使用 `workspace_info.actor.id`，不能把团队名片 ID 或人才档案 ID 当成账号。
 
 ## 整理目标与执行
 

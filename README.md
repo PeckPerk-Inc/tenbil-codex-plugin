@@ -1,6 +1,6 @@
 # TENBIL Codex 插件
 
-把 TENBIL 的商机推进、提案准备和营销计划带入 Codex。插件只包含远程 MCP 连接声明、图标和三个 Skill；业务数据保存在 TENBIL，按每位成员本人授权读取和保存。
+在 Codex 中按员工本人权限操作 TENBIL 的团队商机、资料、工坊与日常协作。插件提供远程 MCP 连接与四个工作方法，业务记录通过 TENBIL 服务读取和保存。
 
 ## 安装
 
@@ -27,10 +27,13 @@ codex plugin marketplace add https://github.com/PeckPerk-Inc/tenbil-codex-plugin
 
 每名成员都需要本人授权。凭据由 Codex 保存并自动续期，不需要每天重新登录；不要把密钥、Cookie 或 token 贴到对话。授权持续到用户断开、替换授权或账号停用；可随时在 TENBIL 设置撤销。仅卸载插件或关闭网页不等于撤销业务授权。
 
-## 三个 Skill
+连接授权中选择员工业务读取、写入或管理员治理范围后，重新连接并刷新工具清单，即可发现当前服务提供的员工动作。旧个人 CRM 工具继续指向个人记录。
+
+## 业务 Skill
 
 | Skill | 用途 |
 | --- | --- |
+| `employee-operations` | 按权限查找员工业务动作，办理移交、红人合作、工坊归属、团队资料与通知等操作 |
 | `opportunity-progress` | 理解商机经过，按依据整理沟通、待办和下一步 |
 | `proposal-preparation` | 检索案例与伙伴，保存有来源的提案工作稿 |
 | `marketing-workflow` | 整理营销活动或项目的计划、步骤、产物与进度 |
